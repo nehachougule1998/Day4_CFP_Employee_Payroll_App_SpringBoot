@@ -1,5 +1,4 @@
 package com.bridgelabz.employeepayrollapp.DTO;
-
 public class EmployeePayrollDTO {
     public String name;
     public int salary;
@@ -17,3 +16,7 @@ public class EmployeePayrollDTO {
                 '}';
     }
 }
+
+
+
+
