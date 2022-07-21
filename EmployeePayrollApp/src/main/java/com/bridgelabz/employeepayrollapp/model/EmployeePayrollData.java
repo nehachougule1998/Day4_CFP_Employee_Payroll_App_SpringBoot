@@ -1,57 +1,43 @@
 package com.bridgelabz.employeepayrollapp.model;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
+import com.bridgelabz.employeepayrollapp.DTO.EmployeePayrollDTO;
 public class EmployeePayrollData {
-    String firstName;
-    String lastName;
-    String address;
-    Long salary;
-    private Integer id;
+    private int employeeID;
+    private String name;
+    private int salary;
 
-    public String getFirstName() {
-        return firstName;
+    public EmployeePayrollData() {
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public EmployeePayrollData(int empID, EmployeePayrollDTO employeePayrollDTO) {
+        this.employeeID = empID;
+        this.name = employeePayrollDTO.name;
+        this.salary = employeePayrollDTO.salary;
     }
 
-    public String getLastName() {
-        return lastName;
+
+    public int getEmployeeID() {
+        return employeeID;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(Long salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Id
-    public Integer getId() {
-        return id;
     }
 }
 
