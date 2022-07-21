@@ -1,12 +1,12 @@
 package com.bridgelabz.employeepayrollapp.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class EmployeePayrollData {
-
     String firstName;
     String lastName;
     String address;
