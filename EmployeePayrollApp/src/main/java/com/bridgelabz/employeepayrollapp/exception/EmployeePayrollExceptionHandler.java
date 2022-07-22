@@ -13,12 +13,25 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class EmployeePayrollExceptionHandler {
+    /**
+     * @ExceptionHandler :-
+     *        is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception){
-        List<ObjectError>errorList = exception.getBindingResult().getAllErrors();
-        List<String>errMesg = errorList.stream().map(objectError -> objectError.getDefaultMessage()).collect(Collectors.toList());
-        ResponseDTO responseDTO = new ResponseDTO("Exception while processing Rest Request", errMesg);
+    public ResponseEntity<ResponseDTO> handlerMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
+
+        List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
+        List<String> errMesg = errorList.stream().map(objErr -> objErr.getDefaultMessage())
+                .collect(Collectors.toList());
+
+        ResponseDTO responseDTO = new ResponseDTO("Exception while processing REST requests", errMesg);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
+
     }
 
+    @ExceptionHandler(EmployeePayrollException.class)
+    public ResponseEntity<ResponseDTO> handleEmployeeNotFound(EmployeePayrollException exception) {
+        ResponseDTO response = new ResponseDTO("Exception while processing REST requests", exception.getMessage());
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.BAD_REQUEST);
+    }
 }
