@@ -2,13 +2,20 @@ package com.bridgelabz.employeepayrollapp.service;
 
 import com.bridgelabz.employeepayrollapp.DTO.EmployeePayrollDTO;
 import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
+import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class EmployeePayrollService {
+
+    @Autowired
+    EmployeePayrollRepository employeePayrollRepository;
     List<EmployeePayrollData> employeeDataList = new ArrayList<>();
 
     public List<EmployeePayrollData> getEmployeePayrollData() {
