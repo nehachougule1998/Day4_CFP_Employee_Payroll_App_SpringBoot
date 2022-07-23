@@ -4,6 +4,7 @@ import com.bridgelabz.employeepayrollapp.DTO.EmployeePayrollDTO;
 import com.bridgelabz.employeepayrollapp.DTO.ResponseDTO;
 import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
 import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/emp")
+@Slf4j
 public class EmployeePayrollController {
     @Autowired
     EmployeePayrollService employeePayrollService;
@@ -43,6 +45,7 @@ public class EmployeePayrollController {
     @PutMapping(value = {" ", "/edit/{empID}"})
     public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable int empID,
                                                                 @Valid @RequestBody EmployeePayrollDTO employeePayrollDTO) {
+        log.debug("EmployeePayrollDTO: "+employeePayrollDTO.toString());
         EmployeePayrollData employeePayrollData;
         employeePayrollData = employeePayrollService.updateEmployeeData(empID, employeePayrollDTO);
         ResponseDTO responseDTO = new ResponseDTO("Data Updated Successfully!!!", employeePayrollData);

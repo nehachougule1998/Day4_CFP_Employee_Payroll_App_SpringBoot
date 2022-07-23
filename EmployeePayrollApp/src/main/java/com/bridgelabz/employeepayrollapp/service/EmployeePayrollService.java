@@ -28,8 +28,8 @@ public class EmployeePayrollService {
 
     public EmployeePayrollData updateEmployeeData(int empID, EmployeePayrollDTO employeePayrollDTO) {
         EmployeePayrollData employeePayrollData = this.getEmployeePayrollDataById(empID);
-        employeePayrollData.setName(employeePayrollDTO.name);
-        employeePayrollData.setSalary(employeePayrollDTO.salary);
+        employeePayrollData.setName(employeePayrollDTO.getName());
+        employeePayrollData.setSalary(employeePayrollDTO.getSalary());
         employeeDataList.set(empID-1, employeePayrollData);
         return employeePayrollData;
     }
