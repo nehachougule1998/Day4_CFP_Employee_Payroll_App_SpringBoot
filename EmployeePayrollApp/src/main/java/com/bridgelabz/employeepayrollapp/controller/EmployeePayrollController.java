@@ -19,6 +19,7 @@ import java.util.List;
 public class EmployeePayrollController {
     @Autowired
     EmployeePayrollService employeePayrollService;
+
     @RequestMapping(value = {" ", "/get"})
     public ResponseEntity<ResponseDTO> getEmployeePayrollData() {
         List<EmployeePayrollData> employeePayrollDataList = employeePayrollService.getEmployeePayrollData();

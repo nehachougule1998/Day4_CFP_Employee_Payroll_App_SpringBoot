@@ -5,6 +5,7 @@ import com.bridgelabz.employeepayrollapp.exception.EmployeePayrollException;
 import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
 import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,10 @@ import java.util.List;
 public class EmployeePayrollService {
 
     @Autowired
-    EmployeePayrollRepository employeePayrollRepository;
+    private EmployeePayrollRepository employeePayrollRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     public List<EmployeePayrollData> getEmployeePayrollData() {
         return employeePayrollRepository.findAll();
@@ -27,14 +31,15 @@ public class EmployeePayrollService {
     }
 
     public EmployeePayrollData addEmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
-        EmployeePayrollData employeePayrollData;
-        employeePayrollData = new EmployeePayrollData(employeePayrollDTO);
+        EmployeePayrollData employeePayrollData = modelMapper.map(employeePayrollDTO,EmployeePayrollData.class);
+       // employeePayrollData = new EmployeePayrollData(employeePayrollDTO);
         return employeePayrollRepository.save(employeePayrollData);
     }
 
     public EmployeePayrollData updateEmployeeData(int empID, EmployeePayrollDTO employeePayrollDTO) {
         EmployeePayrollData employeePayrollData = this.getEmployeePayrollDataById(empID);
-        employeePayrollData.updateData(employeePayrollDTO);
+        //employeePayrollData.updateData(employeePayrollDTO);
+        modelMapper.map(employeePayrollDTO,employeePayrollData);
         return employeePayrollRepository.save(employeePayrollData);
     }
 
