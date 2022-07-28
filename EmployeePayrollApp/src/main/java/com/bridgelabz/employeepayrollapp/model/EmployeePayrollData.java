@@ -27,23 +27,24 @@ public class EmployeePayrollData {
     @CollectionTable(name = "Employee_Department", joinColumns = @JoinColumn(name = "id"))
     private List<String> department;
 
-    public void updateData(EmployeePayrollDTO employeePayrollDTO) {
-        this.name = employeePayrollDTO.getName();
-        this.salary = employeePayrollDTO.getSalary();
-        this.gender = employeePayrollDTO.getGender();
-        this.note = employeePayrollDTO.getNote();
-        this.startDate = employeePayrollDTO.startDate;
-        this.profilePic = employeePayrollDTO.getProfilePic();
-        this.department = employeePayrollDTO.getDepartment();
-    }
-
-    public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
-        this.name = employeePayrollDTO.getName();
-        this.salary = employeePayrollDTO.getSalary();
-        this.gender = employeePayrollDTO.getGender();
-        this.note = employeePayrollDTO.getNote();
-        this.startDate = employeePayrollDTO.startDate;
-        this.profilePic = employeePayrollDTO.getProfilePic();
-        this.department = employeePayrollDTO.getDepartment();
-    }
+//    public void updateData(EmployeePayrollDTO employeePayrollDTO) {
+//        this.name = employeePayrollDTO.getName();
+//        this.salary = employeePayrollDTO.getSalary();
+//        this.gender = employeePayrollDTO.getGender();
+//        this.note = employeePayrollDTO.getNote();
+//        this.startDate = employeePayrollDTO.startDate;
+//        this.profilePic = employeePayrollDTO.getProfilePic();
+//        this.department = employeePayrollDTO.getDepartment();
+//
+//    }
+//
+//    public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
+//        this.name = employeePayrollDTO.getName();
+//        this.salary = employeePayrollDTO.getSalary();
+//        this.gender = employeePayrollDTO.getGender();
+//        this.note = employeePayrollDTO.getNote();
+//        this.startDate = employeePayrollDTO.startDate;
+//        this.profilePic = employeePayrollDTO.getProfilePic();
+//        this.department = employeePayrollDTO.getDepartment();
+//    }
 }

@@ -28,6 +28,7 @@ public class EmployeePayrollExceptionHandler {
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(EmployeePayrollException exception){
         ResponseDTO responseDTO = new ResponseDTO("Exception while processing REST request",exception.getMessage());
         return new ResponseEntity<>(responseDTO, HttpStatus.BAD_REQUEST);
+
     }
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ResponseDTO>handleHttpMessageNotReadableException(HttpMessageNotReadableException exception){
